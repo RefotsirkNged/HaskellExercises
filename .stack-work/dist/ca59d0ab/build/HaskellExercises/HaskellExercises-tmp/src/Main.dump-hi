@@ -1,17 +1,18 @@
 
 ==================== FINAL INTERFACE ====================
-2017-10-31 18:40:02.3785871 UTC
+2017-10-31 18:47:43.7995425 UTC
 
 interface main@main:Main 8002
-  interface hash: bc3d919b97d206eb75095c56e422de67
-  ABI hash: ed4fdf29c8fd16cafe1810b35d068cf4
-  export-list hash: 8fb92458c1d7324d73325f1a92f8b821
+  interface hash: 6961d165ae2e0f2f4817d23be744c071
+  ABI hash: d1e2c0f54b75128fc1e8e7e790570263
+  export-list hash: 13e81b9e6cf379e067192edfecf8cdde
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 149c24934d20c01ac92439e738edd207
   sig of: Nothing
   used TH splices: False
   where
 exports:
+  Main.fib
   Main.main
 module dependencies:
 package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
@@ -22,6 +23,7 @@ family instance modules: base-4.9.1.0:Control.Applicative
                          base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
                          base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
                          base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:GHC.Num 38b8aac8807c096c7f3ca3c1eff02939
 import  -/  base-4.9.1.0:Prelude 74b3e204395920329f6de9d97206abe9
 import  -/  base-4.9.1.0:System.IO 5daf3f384209c11d9566e3409af8ec5d
 import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
@@ -37,6 +39,56 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
+b87a8ecc91aa200bf8a7a5c7edcfd17d
+  fib :: (GHC.Num.Num t, GHC.Num.Num a, GHC.Classes.Eq a) => a -> t
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S,U(C(C1(U)),A,A,A,A,A,C(U))><L,U(A,C(C1(U)),A,A,A,A,C(U))><S(C(C(S))L),U(C(C1(U)),A)><L,U>,
+     Unfolding: (\ @ t
+                   @ a
+                   ($dNum :: GHC.Num.Num t)
+                   ($dNum1 :: GHC.Num.Num a)
+                   ($dEq :: GHC.Classes.Eq a)
+                   (eta :: a) ->
+                 let {
+                   lvl :: a = GHC.Num.fromInteger @ a $dNum1 Main.fib3
+                 } in
+                 let {
+                   lvl1 :: a = GHC.Num.fromInteger @ a $dNum1 Main.fib2
+                 } in
+                 let {
+                   lvl2 :: t = GHC.Num.fromInteger @ t $dNum Main.fib3
+                 } in
+                 let {
+                   lvl3 :: t = GHC.Num.fromInteger @ t $dNum Main.fib1
+                 } in
+                 let {
+                   lvl4 :: a = GHC.Num.fromInteger @ a $dNum1 Main.fib1
+                 } in
+                 letrec {
+                   fib4 :: a -> t {- Arity: 1, Strictness: <L,U> -}
+                   = \ (ds :: a) ->
+                     case GHC.Classes.== @ a $dEq ds lvl4 of wild {
+                       GHC.Types.False
+                       -> case GHC.Classes.== @ a $dEq ds lvl of wild1 {
+                            GHC.Types.False
+                            -> GHC.Num.+
+                                 @ t
+                                 $dNum
+                                 (fib4 (GHC.Num.- @ a $dNum1 ds lvl))
+                                 (fib4 (GHC.Num.- @ a $dNum1 ds lvl1))
+                            GHC.Types.True -> lvl2 }
+                       GHC.Types.True -> lvl3 }
+                 } in
+                 fib4 eta) -}
+91ec94b431d2a0c2383d54fd63f45121
+  fib1 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (0) -}
+428e316444edcda7c9eeae36b64f6ce2
+  fib2 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (2) -}
+7379f7242979cd2a9ae29a4de8cbfd1c
+  fib3 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (1) -}
 386c966f15d0f5ccbfbb6131a2c0516e
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,

@@ -1,0 +1,31 @@
+installation of haskell stuff
+
+Download stack
+stack install 
+	ghc mod
+	hoogle
+	hasktags
+	pointfree
+	pointful
+	cabal-install
+	
+
+To make new project
+stack new "name" template
+stack init/stack setup
+
+Load it up in atom, type away
+
+
+To add package
+Look in stack.yaml
+add under packages
+run stack build
+
+Download atom
+atom: install atom-haskell¨
+should work from there
+? maybe the IDE extension too. 
+
+
+
